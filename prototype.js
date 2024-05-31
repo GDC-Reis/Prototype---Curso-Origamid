@@ -16,11 +16,11 @@ console.log(gustavo.prototype); //undefined
 // nomeFuncao.prototype
 // É possivel adicionar novas propriedades e métodos ao objeto prototype.
 
-Pessoa.prototype.andar = () => {
+Pessoa.prototype.andar = function() {
     return this.nome + ' andou';
 }
 
-Pessoa.prototype.nadar = () => {
+Pessoa.prototype.nadar = function() {
     return this.nome + ' nadou';
 }
 
@@ -137,6 +137,47 @@ Carro.marca.charAt // Function
 Carro.marca.charAt(0) // Function
 
 /*
- Verifica o nome do construtor com ".constructor.name"
+ *** Verifica o nome do construtor com ".constructor.name" ****
  Exemplo: Carro.preco.constructor.name //"Number" 
  */
+
+
+//Exercicios
+
+//Crie uma função construtora de Pessoa
+// Deve conter nome, sobrenome e idade
+// Crie um método no protótipo que retonr o nome completo da pessoa
+
+function Pessoa2(nome, sobrenome, idade) {
+    this.nome = nome;
+    this.sobrenome = sobrenome;
+    this.idade = idade;
+}
+
+Pessoa2.prototype.mostrarNomeCompleto = function() {
+    return `${this.nome} ${this.sobrenome}`;
+}
+
+const gustavo2 = new Pessoa2('Gustavo', 'Donisete', 23);
+gustavo2.mostrarNomeCompleto();
+
+// Liste os métodos acessados por dados criados com NodeList, HTMLCollection, Document
+Object.getOwnPropertyNames(NodeList.prototype);
+Object.getOwnPropertyNames(HTMLCollection.prototype);
+Object.getOwnPropertyNames(Document.prototype);
+
+
+// Liste os construtores dos dados abaixo
+const li = document.querySelector('li');
+
+li; // HTMLLIElement
+li.click; // Function
+li.innerText; // String
+li.value; // Number
+li.hidden; // Boolean
+li.offsetLeft; // Number
+li.click(); // undefined
+
+
+// Qual o construtor do dado abaixo;
+li.hidden.constructor.name; // String 
